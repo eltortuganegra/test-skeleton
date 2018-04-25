@@ -4,7 +4,7 @@ namespace App\Domain\Validator;
 
 use App\Domain\Entity\TextComponentImp;
 
-class TextValidatorFactory
+class TextComponentValidatorFactory
 {
     static public function create(TextComponentImp $text): TextComponentValidator
     {

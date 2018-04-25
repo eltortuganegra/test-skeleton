@@ -3,7 +3,7 @@
 namespace App\Domain\Entity;
 
 
-use App\Domain\Validator\TextValidatorFactory;
+use App\Domain\Validator\TextComponentValidatorFactory;
 use PHPUnit\Framework\TestCase;
 
 class TextComponentValidatorTest extends TestCase
@@ -20,7 +20,7 @@ class TextComponentValidatorTest extends TestCase
         ];
 
         $text = TextComponentFactory::create($data);
-        $textValidator = TextValidatorFactory::create($text);
+        $textValidator = TextComponentValidatorFactory::create($text);
 
         // Act
         $isValid = $textValidator->validate();

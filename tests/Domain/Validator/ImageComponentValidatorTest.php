@@ -2,7 +2,7 @@
 
 namespace App\Domain\Entity;
 
-use App\Domain\Validator\ImageValidatorFactory;
+use App\Domain\Validator\ImageComponentValidatorFactory;
 use PHPUnit\Framework\TestCase;
 
 class ImageComponentValidatorTest extends TestCase
@@ -20,7 +20,7 @@ class ImageComponentValidatorTest extends TestCase
             'size' => 500,
         ];
         $image = ImageComponentFactory::create($data);
-        $validator = ImageValidatorFactory::create($image);
+        $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
         $isImageValid = $validator->validate();
@@ -42,7 +42,7 @@ class ImageComponentValidatorTest extends TestCase
             'size' => 500,
         ];
         $image = ImageComponentFactory::create($data);
-        $validator = ImageValidatorFactory::create($image);
+        $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
         $isImageValid = $validator->validate();
@@ -64,7 +64,7 @@ class ImageComponentValidatorTest extends TestCase
             'size' => 500,
         ];
         $image = ImageComponentFactory::create($data);
-        $validator = ImageValidatorFactory::create($image);
+        $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
         $isImageValid = $validator->validate();

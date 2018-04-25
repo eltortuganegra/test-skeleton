@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entity;
 
+
 class AdImp implements Ad
 {
     private $status;
@@ -44,4 +45,5 @@ class AdImp implements Ad
     {
         return $this->status == 'publishing';
     }
+
 }
