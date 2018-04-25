@@ -29,11 +29,19 @@ class AdImp implements Ad
 
     public function addComponent(Component $component)
     {
+        if ($this->isStatusPublishing()) {
+            throw new AdCanNotBeModifiedIfItsStatusIsPublishingException();
+        }
         $this->components[] = $component;
     }
 
     public function getComponents(): array
     {
         return $this->components;
+    }
+
+    public function isStatusPublishing(): bool
+    {
+        return $this->status == 'publishing';
     }
 }

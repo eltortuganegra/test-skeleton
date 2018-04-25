@@ -96,5 +96,34 @@ class AdTest extends TestCase
         $this->assertEquals($hodorTextComponent, $components[1]);
     }
 
+    public function testAdCanNotBeModifiedIfItsStatusIsPublishing()
+    {
+        $this->expectException(AdCanNotBeModifiedIfItsStatusIsPublishingException::class);
+
+        // Arrange
+        $textData = [
+            'name' => 'Zombie Ad',
+            'position' => '10,20,30',
+            'width' => 50,
+            'height' => 100,
+            'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
+        ];
+        $zombieTextComponent = ComponentFactory::createTextComponent($textData);
+        $textData = [
+            'name' => 'Hodor',
+            'position' => '40,50,60',
+            'width' => 50,
+            'height' => 100,
+            'text' => 'Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor hodor - hodor hodor hodor!',
+        ];
+        $hodorTextComponent = ComponentFactory::createTextComponent($textData);
+
+        $ad = AdFactory::create();
+        $ad->addComponent($zombieTextComponent);
+        $ad->publish();
+
+        // Act
+        $ad->addComponent($hodorTextComponent);
+    }
 
 }
