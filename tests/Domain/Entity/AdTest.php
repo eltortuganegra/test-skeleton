@@ -44,7 +44,7 @@ class AdTest extends TestCase
         $this->assertEquals('published', $status, 'Status is not published.');
     }
 
-    public function testCreateAnAdWithATextComponent()
+    public function testCreateAnAdAndAddATextComponent()
     {
         // Arrange
         $textData = [
@@ -65,7 +65,7 @@ class AdTest extends TestCase
         $this->assertEquals($textComponent, $components[0]);
     }
 
-    public function testCreateAnAdWithSeveralComponents()
+    public function testCreateAnAdAddSeveralComponents()
     {
         // Arrange
         $textData = [
