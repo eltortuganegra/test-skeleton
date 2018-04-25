@@ -30,7 +30,6 @@ class AdImp implements Ad
     public function addComponent(Component $component)
     {
         $this->components[] = $component;
-        echo "Size " . count($this->components);
     }
 
     public function getComponents(): array
