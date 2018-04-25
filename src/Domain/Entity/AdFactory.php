@@ -2,7 +2,12 @@
 
 namespace App\Domain\Entity;
 
-interface AdFactory
+
+class AdFactory
 {
-    static public function create();
+
+    static public function create():Ad
+    {
+        return new AdImp();
+    }
 }
