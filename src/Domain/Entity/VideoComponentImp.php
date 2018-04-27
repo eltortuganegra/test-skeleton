@@ -5,14 +5,14 @@ namespace App\Domain\Entity;
 
 class VideoComponentImp extends ComponentImp implements VideoComponent
 {
-    private $url;
+    private $linkToExternalImage;
     private $format;
     private $size;
 
     public function __construct(array $data)
     {
         parent::__construct($data);
-        $this->url = $data['url'];
+        $this->linkToExternalImage = $data['linkToExternalImage'];
         $this->format = $data['format'];
         $this->size = $data['size'];
     }
@@ -29,7 +29,7 @@ class VideoComponentImp extends ComponentImp implements VideoComponent
             'position' => $this->position,
             'width' => $this->width,
             'height' => $this->height,
-            'url' => $this->url,
+            'linkToExternalImage' => $this->linkToExternalImage,
             'format' => $this->format,
             'size' => $this->size
         ];

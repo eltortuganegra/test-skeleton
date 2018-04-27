@@ -9,7 +9,8 @@
   },
   "require-dev": {
     "symfony/profiler-pack": "^1.0",
-    "symfony/web-server-bundle": "^4"
+    "symfony/web-server-bundle": "^4",
+    "symfony/maker-bundle": "^1.4"
   },
   "autoload": {
     "psr-4": {

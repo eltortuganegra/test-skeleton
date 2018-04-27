@@ -15,7 +15,7 @@ class VideoComponentValidatorTest extends TestCase
             'position' => '10,20,30',
             'width' => 50,
             'height' => 100,
-            'url' => '',
+            'linkToExternalImage' => '',
             'format' => 'noValidFormat',
             'size' => 500,
         ];
@@ -37,7 +37,7 @@ class VideoComponentValidatorTest extends TestCase
             'position' => '10,20,30',
             'width' => 50,
             'height' => 100,
-            'url' => '',
+            'linkToExternalImage' => '',
             'format' => 'mp4',
             'size' => 500,
         ];
@@ -59,7 +59,7 @@ class VideoComponentValidatorTest extends TestCase
             'position' => '10,20,30',
             'width' => 50,
             'height' => 100,
-            'url' => '',
+            'linkToExternalImage' => '',
             'format' => 'webm',
             'size' => 500,
         ];

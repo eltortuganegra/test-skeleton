@@ -5,7 +5,7 @@ namespace App\Domain\Entity;
 
 interface ImageComponent
 {
-    public function setUrl(string $url);
-    public function getUrl();
+    public function setLinkToExternalImage(string $url);
+    public function getLinkToExternalImage();
     public function getFormat():string;
 }

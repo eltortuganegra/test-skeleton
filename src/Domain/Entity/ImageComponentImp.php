@@ -5,27 +5,27 @@ namespace App\Domain\Entity;
 
 class ImageComponentImp extends ComponentImp implements ImageComponent
 {
-    private $url;
+    private $linkToExternalImage;
     private $format;
     private $size;
 
     public function __construct(array $data)
     {
         parent::__construct($data);
-        $this->url = $data['url'];
+        $this->linkToExternalImage = $data['linkToExternalImage'];
         $this->format = $data['format'];
         $this->size = $data['size'];
     }
 
 
-    public function setUrl(string $url)
+    public function setLinkToExternalImage(string $linkToExternalImage)
     {
-        $this->url = $url;
+        $this->linkToExternalImage = $linkToExternalImage;
     }
 
-    public function getUrl():string
+    public function getLinkToExternalImage():string
     {
-        return $this->url;
+        return $this->linkToExternalImage;
     }
 
     public function getFormat():string
@@ -40,7 +40,7 @@ class ImageComponentImp extends ComponentImp implements ImageComponent
             'position' => $this->position,
             'width' => $this->width,
             'height' => $this->height,
-            'url' => $this->url,
+            'linkToExternalImage' => $this->linkToExternalImage,
             'format' => $this->format,
             'size' => $this->size
         ];

@@ -27,7 +27,7 @@ class AdValidatorTest extends TestCase
             'position' => '10,20,30',
             'width' => 50,
             'height' => 100,
-            'url' => '',
+            'linkToExternalImage' => '',
             'format' => 'noValidFormat',
             'size' => 500,
         ];
