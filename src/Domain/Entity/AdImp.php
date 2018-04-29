@@ -5,12 +5,16 @@ namespace App\Domain\Entity;
 
 class AdImp implements Ad
 {
+    private $createAt;
     private $status;
+    private $name;
     private $components;
 
     public function __construct()
     {
+        $this->createAt = new \DateTime();
         $this->status = 'stopped';
+        $this->components = [];
     }
 
     public function getStatus()
@@ -44,6 +48,16 @@ class AdImp implements Ad
     public function isStatusPublishing(): bool
     {
         return $this->status == 'publishing';
+    }
+
+    public function setName(string $name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
 }
