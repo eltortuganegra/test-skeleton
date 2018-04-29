@@ -17,7 +17,6 @@ class ImageComponentImp extends ComponentImp implements ImageComponent
         $this->size = $data['size'];
     }
 
-
     public function setLinkToExternalImage(string $linkToExternalImage)
     {
         $this->linkToExternalImage = $linkToExternalImage;
@@ -28,9 +27,24 @@ class ImageComponentImp extends ComponentImp implements ImageComponent
         return $this->linkToExternalImage;
     }
 
+    public function setFormat(string $format)
+    {
+        $this->format = $format;
+    }
+
     public function getFormat():string
     {
         return $this->format;
+    }
+
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    public function setSize(int $size)
+    {
+        $this->size = $size;
     }
 
     public function serialize(): string

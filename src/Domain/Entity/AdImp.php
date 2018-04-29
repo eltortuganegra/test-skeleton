@@ -23,6 +23,17 @@ class AdImp implements Ad
         }
     }
 
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+
     public function getStatus()
     {
         return $this->status;
@@ -70,15 +81,5 @@ class AdImp implements Ad
     public function getAmountComponents(): int
     {
         return $this->amountComponents;
-    }
-
-    public function setId(int $id)
-    {
-        $this->id = $id;
-    }
-
-    public function getId(): int
-    {
-        return $this->id;
     }
 }

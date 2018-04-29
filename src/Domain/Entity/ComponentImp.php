@@ -29,42 +29,42 @@ abstract class ComponentImp implements Component
         return $this->id;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
 
-    public function setPosition($position)
-    {
-        $this->position = $position;
-    }
-
-    public function setWidth($width)
-    {
-        $this->width = $width;
-    }
-
-    public function setHeight($height)
-    {
-        $this->height = $height;
-    }
-
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getPosition()
+    public function setPosition(string $position)
+    {
+        $this->position = $position;
+    }
+
+    public function getPosition(): string
     {
         return $this->position;
     }
 
-    public function getWidth()
+    public function setWidth(int $width)
+    {
+        $this->width = $width;
+    }
+
+    public function getWidth(): int
     {
         return $this->width;
     }
 
-    public function getHeight()
+    public function setHeight(int $height)
+    {
+        $this->height = $height;
+    }
+
+    public function getHeight(): int
     {
         return $this->height;
     }

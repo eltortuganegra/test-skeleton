@@ -17,7 +17,32 @@ class VideoComponentImp extends ComponentImp implements VideoComponent
         $this->size = $data['size'];
     }
 
-    public function getFormat()
+    public function getLinkToExternalImage(): string
+    {
+        return $this->linkToExternalImage;
+    }
+
+    public function setLinkToExternalImage(string $linkToExternalImage)
+    {
+        $this->linkToExternalImage = $linkToExternalImage;
+    }
+
+    public function getSize(): int
+    {
+        return $this->size;
+    }
+
+    public function setSize(int $size)
+    {
+        $this->size = $size;
+    }
+
+    public function setFormat(string $format)
+    {
+        $this->format = $format;
+    }
+
+    public function getFormat(): string
     {
         return $this->format;
     }
@@ -36,4 +61,5 @@ class VideoComponentImp extends ComponentImp implements VideoComponent
 
         return serialize($data);
     }
+
 }
