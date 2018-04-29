@@ -21,6 +21,7 @@ class DoctrineAdRepository implements AdRepository
     {
         $this->loadAdEntityFromAd($ad);
         $this->persistAdEntity();
+        $ad->setId($this->adEntity->getId());
     }
 
     private function loadAdEntityFromAd(Ad $ad): void
@@ -33,5 +34,11 @@ class DoctrineAdRepository implements AdRepository
     {
         $this->entityManager->persist($this->adEntity);
         $this->entityManager->flush();
+
+    }
+
+    public function getAdEntity()
+    {
+        return $this->adEntity;
     }
 }

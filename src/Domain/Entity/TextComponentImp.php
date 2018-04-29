@@ -26,4 +26,14 @@ class TextComponentImp extends ComponentImp implements TextComponent
         return serialize($data);
     }
 
+    public function getText(): string
+    {
+        return $this->text;
+    }
+
+    public function setText(string $text)
+    {
+        $this->text = $text;
+    }
+
 }

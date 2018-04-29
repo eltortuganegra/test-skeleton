@@ -7,7 +7,7 @@ use Doctrine\ORM\EntityManager;
 
 class AdRepositoryFactory
 {
-    public function createDoctrine($entityManager): AdRepository
+    public function createDoctrine(EntityManager $entityManager): AdRepository
     {
         return new DoctrineAdRepository($entityManager);
     }

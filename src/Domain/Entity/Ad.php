@@ -12,5 +12,9 @@ interface Ad
     public function getComponents():array;
     public function setName(string $name);
     public function getName():string;
+    public function getAmountComponents(): int ;
+    public function setId(int $id);
+    public function getId(): int;
+
 
 }

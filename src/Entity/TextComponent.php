@@ -69,7 +69,6 @@ class TextComponent
         $this->ad = $ad;
     }
 
-
     public function getId()
     {
         return $this->id;

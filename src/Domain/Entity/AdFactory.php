@@ -5,9 +5,8 @@ namespace App\Domain\Entity;
 
 class AdFactory
 {
-
-    static public function create():Ad
+    static public function create(array $data = null):Ad
     {
-        return new AdImp();
+        return new AdImp($data);
     }
 }
