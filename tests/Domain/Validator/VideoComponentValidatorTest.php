@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entity;
 
+use App\Domain\Validator\AllComponentsMustBeValidException;
 use App\Domain\Validator\VideoComponentValidatorFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -9,6 +10,9 @@ class VideoComponentValidatorTest extends TestCase
 {
     public function testVideoWithInvalidFormat()
     {
+        // Assert
+        $this->expectException(AllComponentsMustBeValidException::class);
+
         // Arrange
         $data = [
             'name' => 'Super Ad',
@@ -23,10 +27,10 @@ class VideoComponentValidatorTest extends TestCase
         $validator = VideoComponentValidatorFactory::create($videoComponent);
 
         // Act
-        $isVideoValid = $validator->validate();
+        $validator->validate();
 
         // Assert
-        $this->assertEquals(false, $isVideoValid);
+        $this->assertTrue(true);
     }
 
     public function testVideoWithMp4Format()
@@ -45,10 +49,10 @@ class VideoComponentValidatorTest extends TestCase
         $validator = VideoComponentValidatorFactory::create($video);
 
         // Act
-        $isVideoValid = $validator->validate();
+        $validator->validate();
 
         // Assert
-        $this->assertEquals(true, $isVideoValid);
+        $this->assertTrue(true);
     }
 
     public function testVideoWithWebmFormat()
@@ -67,10 +71,10 @@ class VideoComponentValidatorTest extends TestCase
         $validator = VideoComponentValidatorFactory::create($video);
 
         // Act
-        $isVideoValid = $validator->validate();
+        $validator->validate();
 
         // Assert
-        $this->assertEquals(true, $isVideoValid);
+        $this->assertTrue(true);
     }
 
 }

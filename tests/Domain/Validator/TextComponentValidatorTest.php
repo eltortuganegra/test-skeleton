@@ -3,6 +3,7 @@
 namespace App\Domain\Entity;
 
 
+use App\Domain\Validator\AllComponentsMustBeValidException;
 use App\Domain\Validator\TextComponentValidatorFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -10,6 +11,9 @@ class TextComponentValidatorTest extends TestCase
 {
     public function testTextFieldSizeMustBeLessThan140Characters()
     {
+        // Assert
+        $this->expectException(AllComponentsMustBeValidException::class);
+
         // Arrange
         $data = [
             'name' => 'Super Ad',
@@ -23,10 +27,8 @@ class TextComponentValidatorTest extends TestCase
         $textValidator = TextComponentValidatorFactory::create($text);
 
         // Act
-        $isValid = $textValidator->validate();
+        $textValidator->validate();
 
-        // Assert
-        $this->assertEquals(false, $isValid, 'Text field length must be less than 140 characters.');
     }
 
 }

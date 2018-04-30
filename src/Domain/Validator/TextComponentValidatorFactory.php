@@ -2,12 +2,12 @@
 
 namespace App\Domain\Validator;
 
-use App\Domain\Entity\TextComponentImp;
+use App\Domain\Entity\TextComponent;
 
 class TextComponentValidatorFactory
 {
-    static public function create(TextComponentImp $text): TextComponentValidator
+    static public function create(TextComponent $textComponent): TextComponentValidator
     {
-        return new TextComponentValidatorImp($text);
+        return new TextComponentValidatorImp($textComponent);
     }
 }

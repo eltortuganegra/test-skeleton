@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entity;
 
+use App\Domain\Validator\AllComponentsMustBeValidException;
 use App\Domain\Validator\ImageComponentValidatorFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -9,6 +10,9 @@ class ImageComponentValidatorTest extends TestCase
 {
     public function testImageWithInvalidFormat()
     {
+        // Assert
+        $this->expectException(AllComponentsMustBeValidException::class);
+
         // Arrange
         $data = [
             'name' => 'Super Ad',
@@ -23,10 +27,7 @@ class ImageComponentValidatorTest extends TestCase
         $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
-        $isImageValid = $validator->validate();
-
-        // Assert
-        $this->assertEquals(false, $isImageValid);
+        $validator->validate();
     }
 
     public function testImageCanHaveAPngFormat()
@@ -45,10 +46,10 @@ class ImageComponentValidatorTest extends TestCase
         $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
-        $isImageValid = $validator->validate();
+        $validator->validate();
 
         // Assert
-        $this->assertEquals(true, $isImageValid);
+        $this->assertTrue(true);
     }
 
     public function testImageCanHaveAJpgFormat()
@@ -67,10 +68,10 @@ class ImageComponentValidatorTest extends TestCase
         $validator = ImageComponentValidatorFactory::create($image);
 
         // Act
-        $isImageValid = $validator->validate();
+        $validator->validate();
 
         // Assert
-        $this->assertEquals(true, $isImageValid);
+        $this->assertTrue(true);
     }
 
 }

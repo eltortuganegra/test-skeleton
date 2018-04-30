@@ -6,6 +6,9 @@ namespace App\Domain\Service;
 use App\Domain\Entity\ImageComponent;
 use App\Domain\Entity\TextComponent;
 use App\Domain\Entity\VideoComponent;
+use App\Domain\Validator\ImageComponentValidatorFactory;
+use App\Domain\Validator\TextComponentValidatorFactory;
+use App\Domain\Validator\VideoComponentValidatorFactory;
 use App\infrastructure\persistence\AdRepository;
 use App\infrastructure\persistence\ImageComponentRepository;
 use App\infrastructure\persistence\TextComponentRepository;
@@ -31,10 +34,16 @@ class CreateAdService
         if ($this->areThereComponents()) {
             foreach ($this->ad->getComponents() as $component) {
                 if ($component instanceof TextComponent) {
+                    $validator = TextComponentValidatorFactory::create($component);
+                    $validator->validate();
                     $this->textComponentRepository->create($component, $this->ad);
                 } if ($component instanceof ImageComponent) {
+                    $validator = ImageComponentValidatorFactory::create($component);
+                    $validator->validate();
                     $this->imageComponentRepository->create($component, $this->ad);
                 } if ($component instanceof VideoComponent) {
+                    $validator = VideoComponentValidatorFactory::create($component);
+                    $validator->validate();
                     $this->videoComponentRepository->create($component, $this->ad);
                 }
             }

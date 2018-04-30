@@ -14,10 +14,12 @@ class VideoComponentValidatorImp implements VideoComponentValidator
         $this->video = $video;
     }
 
-    public function validate(): bool
+    public function validate()
     {
-        return $this->isFormatMp4()
-            || $this->isFormatWebm();
+        if ($this->isFormatMp4() || $this->isFormatWebm()) {
+        } else {
+            throw new AllComponentsMustBeValidException();
+        }
     }
 
     public function isFormatMp4(): bool

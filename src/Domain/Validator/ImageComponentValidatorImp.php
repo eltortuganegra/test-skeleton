@@ -7,26 +7,28 @@ use App\Domain\Entity\ImageComponent;
 
 class ImageComponentValidatorImp implements ImageComponentValidator
 {
-    private $image;
+    private $imageComponent;
 
-    public function __construct(ImageComponent $image)
+    public function __construct(ImageComponent $imageComponent)
     {
-        $this->image = $image;
+        $this->imageComponent = $imageComponent;
     }
 
-    public function validate(): bool
+    public function validate()
     {
-        return $this->isFormatPng()
-            || $this->isFormatJpg();
+        if ($this->isFormatPng() || $this->isFormatJpg()) {
+        } else {
+            throw new AllComponentsMustBeValidException();
+        }
     }
 
     public function isFormatPng(): bool
     {
-        return $this->image->getFormat() === 'png';
+        return $this->imageComponent->getFormat() === 'png';
     }
 
     public function isFormatJpg(): bool
     {
-        return $this->image->getFormat() === 'jpg';
+        return $this->imageComponent->getFormat() === 'jpg';
     }
 }

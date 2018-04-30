@@ -3,6 +3,7 @@
 namespace App\Domain\Service;
 
 use App\Domain\Entity\Ad;
+use App\Domain\Validator\AllComponentsMustBeValidException;
 use App\infrastructure\persistence\AdRepositoryFactory;
 use App\infrastructure\persistence\ImageComponentRepositoryFactory;
 use App\infrastructure\persistence\TextComponentRepositoryFactory;
@@ -123,7 +124,7 @@ class CreateAdTest extends KernelTestCase
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
-                    'format' => 'jpg',
+                    'format' => 'webm',
                     'size' => 1000,
                 ],
             ]
@@ -141,6 +142,39 @@ class CreateAdTest extends KernelTestCase
         $this->assertEquals( 3, $amountComponents, 'Ad must have three components.');
     }
 
+    public function testIfOneComponentIsNotValidThenServiceMustThrowAComponentIsNotValidException()
+    {
+        // Assert
+        $this->expectException(AllComponentsMustBeValidException::class);
 
+        // Arrange
+        $createAdService = new CreateAdService($this->adRepository);
+        $textComponentRepository = TextComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $createAdService->setTextComponentRepository($textComponentRepository);
+        $imageComponentRepository = ImageComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $createAdService->setImageComponentRepository($imageComponentRepository);
+        $videoComponentRepository = VideoComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $createAdService->setVideoComponentRepository($videoComponentRepository);
+
+        $data = [
+            'name' => 'Stark Industries Ad',
+            'components' => [
+                [
+                    'type' => 'ImageComponent',
+                    'name' => 'Component no valid',
+                    'position' => '1,2,3',
+                    'width' => 100,
+                    'height' => 300,
+                    'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
+                    'format' => 'novalid',
+                    'size' => 1000,
+                ]
+            ]
+        ];
+        $createAdServiceRequest = new CreateAdServiceRequest($data);
+
+        // Act
+        $createAdService->execute($createAdServiceRequest);
+    }
 
 }

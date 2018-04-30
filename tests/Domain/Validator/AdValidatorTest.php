@@ -11,6 +11,7 @@ class AdValidatorTest extends TestCase
 {
     public function testAllComponentsMustBeValid()
     {
+        // Assert
         $this->expectException(AllComponentsMustBeValidException::class);
 
         // Arrange

@@ -7,9 +7,9 @@ use App\Domain\Entity\VideoComponent;
 
 class VideoComponentValidatorFactory
 {
-    static public function create(VideoComponent $video): VideoComponentValidator
+    static public function create(VideoComponent $videoComponent): VideoComponentValidator
     {
-        return new VideoComponentValidatorImp($video);
+        return new VideoComponentValidatorImp($videoComponent);
     }
 
 }
