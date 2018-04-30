@@ -41,6 +41,12 @@ Publica un anuncio. Cambia el estado de un anuncio.
 php bin/console server:run
 ``` 
  
+## Ejecutar los test
+
+```
+./vendor/bin/simple-phpunit
+```
+ 
 ## Examples Json for services
 
 * Crear un anuncio sin componentes.
