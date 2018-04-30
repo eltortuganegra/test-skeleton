@@ -37,18 +37,21 @@ Publica un anuncio. Cambia el estado de un anuncio.
 
 ## Arrancar el proyecto
 
-php bin/console server:run 
+```
+php bin/console server:run
+``` 
  
 ## Examples Json for services
 
 * Crear un anuncio sin componentes.
-
+```
 {
 	"name": "Stark Industries promo"
 }
-
+```
 * Crear un anuncio con un componente de texto.
 
+```
 {
 	"name": "Stark Industries promo",
 	"components":[
@@ -62,9 +65,11 @@ php bin/console server:run
 		}
 	]
 }
+```
 
 * Crear un anuncio con tres componentes.
 
+```
 {
 	"name": "Stark Industries promo",
 	"components":[
@@ -98,7 +103,7 @@ php bin/console server:run
 		}
 	]
 }
-
+```
 
 
 # test-skeleton
