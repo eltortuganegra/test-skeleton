@@ -9,10 +9,10 @@ interface Ad
     public function getId(): int;
     public function setName(string $name);
     public function getName(): string;
-    public function isStatusPublishing(): bool;
+    public function isStatusPublished(): bool;
     public function getStatus();
     public function publish();
-    public function published();
+    public function stop();
     public function addComponent(Component $component);
     public function getComponents():array;
     public function getAmountComponents(): int;

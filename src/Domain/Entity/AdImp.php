@@ -15,7 +15,7 @@ class AdImp implements Ad
     public function __construct(array $data = null)
     {
         $this->createAt = new \DateTime();
-        $this->status = 'stopped';
+        $this->status = 'publishing';
         $this->components = [];
         $this->amountComponents = 0;
         if ( ! empty($data) && key_exists('name', $data)) {
@@ -41,17 +41,17 @@ class AdImp implements Ad
 
     public function publish()
     {
-        $this->status = 'publishing';
+        $this->status = 'published';
     }
 
-    public function published()
+    public function stop()
     {
-        $this->status = 'published';
+        $this->status = 'stopped';
     }
 
     public function addComponent(Component $component)
     {
-        if ($this->isStatusPublishing()) {
+        if ($this->isStatusPublished()) {
             throw new AdCanNotBeModifiedIfItsStatusIsPublishingException();
         }
         $this->components[] = $component;
@@ -63,9 +63,9 @@ class AdImp implements Ad
         return $this->components;
     }
 
-    public function isStatusPublishing(): bool
+    public function isStatusPublished(): bool
     {
-        return $this->status == 'publishing';
+        return $this->status == 'published';
     }
 
     public function setName(string $name)

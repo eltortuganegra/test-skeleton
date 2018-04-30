@@ -40,7 +40,8 @@ class CreateAdTest extends KernelTestCase
         // Arrange
         $createAdService = new CreateAdService($this->adRepository);
         $data = [
-            'name' => 'Stark Industries Ad'
+            'name' => 'Stark Industries Ad',
+            'status' => 'publishing'
         ];
 
         $createAdServiceRequest = new CreateAdServiceRequest($data);
@@ -61,6 +62,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
+            'status' => 'publishing',
             'components' => [
                 [
                     'type' => 'TextComponent',
@@ -98,6 +100,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
+            'status' => 'publishing',
             'components' => [
                 [
                     'type' => 'TextComponent',
@@ -158,6 +161,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
+            'status' => 'publishing',
             'components' => [
                 [
                     'type' => 'ImageComponent',

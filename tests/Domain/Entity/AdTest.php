@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class AdTest extends TestCase
 {
-    public function testDefaultStateIsStopped()
+    public function testDefaultStateIsPublishing()
     {
         // Arrange
         $ad = AdFactory::create();
@@ -15,10 +15,10 @@ class AdTest extends TestCase
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('stopped', $status);
+        $this->assertEquals('publishing', $status);
     }
 
-    public function testAdCanChangeStatusToPublishing()
+    public function testPublishAnAdChangeItsStatusToPublished()
     {
         // Arrange
         $ad = AdFactory::create();
@@ -28,20 +28,20 @@ class AdTest extends TestCase
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('publishing', $status, 'Status is not publishing.');
+        $this->assertEquals('published', $status, 'Status is not published.');
     }
 
-    public function testAdCanChangeStatusToPublished()
+    public function testStopAnAdChangeItsStatusToStopped()
     {
         // Arrange
         $ad = AdFactory::create();
-        $ad->published();
+        $ad->stop();
 
         // Act
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('published', $status, 'Status is not published.');
+        $this->assertEquals('stopped', $status, 'Status is not stopped.');
     }
 
     public function testCreateAnAdAndAddATextComponent()
@@ -96,7 +96,7 @@ class AdTest extends TestCase
         $this->assertEquals($hodorTextComponent, $components[1]);
     }
 
-    public function testAdCanNotBeModifiedIfItsStatusIsPublishing()
+    public function testAdCanNotBeModifiedIfItsStatusIsPublished()
     {
         $this->expectException(AdCanNotBeModifiedIfItsStatusIsPublishingException::class);
 

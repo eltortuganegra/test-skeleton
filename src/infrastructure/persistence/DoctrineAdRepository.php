@@ -4,6 +4,7 @@ namespace App\infrastructure\persistence;
 
 
 use App\Domain\Entity\Ad;
+use App\Domain\Entity\AdFactory;
 use Doctrine\ORM\EntityManager;
 
 class DoctrineAdRepository implements AdRepository
@@ -28,6 +29,7 @@ class DoctrineAdRepository implements AdRepository
     {
         $this->adEntity->setCreatedAt(new \DateTime());
         $this->adEntity->setName($ad->getName());
+        $this->adEntity->setStatus($ad->getStatus());
     }
 
     private function persistAdEntity(): void
@@ -40,5 +42,26 @@ class DoctrineAdRepository implements AdRepository
     public function getAdEntity()
     {
         return $this->adEntity;
+    }
+
+    public function getById(int $id)
+    {
+        $entity = $this->entityManager->find(\App\Entity\Ad::class, $id);
+        $data = [
+            'id' => $entity->getId(),
+            'name' => $entity->getName(),
+            'status' => $entity->getStatus(),
+        ];
+
+        $ad = AdFactory::create($data);
+
+
+        return $ad;
+    }
+
+    public function update(Ad $ad)
+    {
+        $this->loadAdEntityFromAd($ad);
+        $this->persistAdEntity();
     }
 }
