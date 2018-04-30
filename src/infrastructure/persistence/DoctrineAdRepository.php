@@ -47,14 +47,17 @@ class DoctrineAdRepository implements AdRepository
     public function getById(int $id)
     {
         $entity = $this->entityManager->find(\App\Entity\Ad::class, $id);
+
+        if (empty($entity)) {
+            throw new AdNotFoundException();
+        }
+
         $data = [
             'id' => $entity->getId(),
             'name' => $entity->getName(),
             'status' => $entity->getStatus(),
         ];
-
         $ad = AdFactory::create($data);
-
 
         return $ad;
     }
@@ -62,6 +65,6 @@ class DoctrineAdRepository implements AdRepository
     public function update(Ad $ad)
     {
         $this->loadAdEntityFromAd($ad);
-        $this->persistAdEntity();
+        $this->entityManager->flush();
     }
 }
