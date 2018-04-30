@@ -14,7 +14,7 @@ use App\infrastructure\persistence\ImageComponentRepository;
 use App\infrastructure\persistence\TextComponentRepository;
 use App\infrastructure\persistence\VideoComponentRepository;
 
-class CreateAdService
+class CreateAdService implements Service
 {
     private $adRepository;
     private $ad;
@@ -27,9 +27,9 @@ class CreateAdService
         $this->adRepository = $adRepository;
     }
 
-    public function execute(CreateAdServiceRequest $createAdServiceRequest)
+    public function execute(ServiceRequest $serviceRequest): ServiceResponse
     {
-        $this->loadAd($createAdServiceRequest);
+        $this->loadAd($serviceRequest);
         $this->createAd();
         if ($this->areThereComponents()) {
             foreach ($this->ad->getComponents() as $component) {

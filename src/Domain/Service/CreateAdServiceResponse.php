@@ -5,7 +5,7 @@ namespace App\Domain\Service;
 
 use App\Domain\Entity\Ad;
 
-class CreateAdServiceResponse
+class CreateAdServiceResponse implements ServiceResponse
 {
     private $ad;
 

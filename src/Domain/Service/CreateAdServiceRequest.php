@@ -8,7 +8,7 @@ use App\Domain\Entity\ImageComponentFactory;
 use App\Domain\Entity\TextComponentFactory;
 use App\Domain\Entity\VideoComponentFactory;
 
-class CreateAdServiceRequest
+class CreateAdServiceRequest implements ServiceRequest
 {
     private $ad;
 
