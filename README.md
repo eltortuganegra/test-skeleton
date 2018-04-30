@@ -35,7 +35,13 @@ Crea un anuncio.Puede ser contener de 0 a N componentes.
 * **/ad/publish**
 Publica un anuncio. Cambia el estado de un anuncio.
 
-## Arrancar el proyecto
+## Instalar el proyecto
+
+```
+composer install
+``` 
+
+## Ejecutar el proyecto
 
 ```
 php bin/console server:run
