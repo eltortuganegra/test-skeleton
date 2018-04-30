@@ -37,9 +37,35 @@ Publica un anuncio. Cambia el estado de un anuncio.
 
 ## Instalar el proyecto
 
+Instalar el proyecto:
+
 ```
 composer install
 ``` 
+
+Instalar doctrine y maker:
+
+```
+composer require doctrine
+composer require maker --dev
+```
+
+Crear la base datos (puede que tengas que crearla a mano por los permisos):
+
+```
+php bin/console doctrine:database:create
+```
+
+Crear la migración:
+
+```
+php bin/console make:migration
+```
+
+Ejecutar la migración:
+```
+php bin/console doctrine:migrations:migrate
+```
 
 ## Ejecutar el proyecto
 
