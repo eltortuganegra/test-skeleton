@@ -23,6 +23,7 @@ class DoctrineTextComponentRepository implements TextComponentRepository
         $adEntity = $this->findAdEntity($ad);
         $this->loadEntityFromTextComponent($textComponent, $adEntity);
         $this->persistTexComponentEntity();
+        $this->updateComponentWithId($textComponent);
     }
 
     private function loadEntityFromTextComponent(TextComponent $textComponent, $adEntity): void
@@ -45,5 +46,10 @@ class DoctrineTextComponentRepository implements TextComponentRepository
     private function findAdEntity(Ad $ad)
     {
         return $this->entityManager->find(\App\Entity\Ad::class, $ad->getId());
+    }
+
+    private function updateComponentWithId(TextComponent $textComponent): void
+    {
+        $textComponent->setId($this->textComponentEntity->getId());
     }
 }

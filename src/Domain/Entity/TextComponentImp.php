@@ -13,19 +13,6 @@ class TextComponentImp extends ComponentImp implements TextComponent
         $this->text = $data['text'];
     }
 
-    public function serialize(): string
-    {
-        $data = [
-            'name' => $this->name,
-            'position' => $this->position,
-            'width' => $this->width,
-            'height' => $this->height,
-            'text' => $this->text,
-        ];
-
-        return serialize($data);
-    }
-
     public function getText(): string
     {
         return $this->text;
@@ -34,6 +21,20 @@ class TextComponentImp extends ComponentImp implements TextComponent
     public function setText(string $text)
     {
         $this->text = $text;
+    }
+
+    public function serialize(): string
+    {
+        $data = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'position' => $this->position,
+            'width' => $this->width,
+            'height' => $this->height,
+            'text' => $this->text,
+        ];
+
+        return serialize($data);
     }
 
 }

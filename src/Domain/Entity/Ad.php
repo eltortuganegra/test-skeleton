@@ -16,4 +16,5 @@ interface Ad
     public function addComponent(Component $component);
     public function getComponents():array;
     public function getAmountComponents(): int;
+    public function serialize(): string;
 }

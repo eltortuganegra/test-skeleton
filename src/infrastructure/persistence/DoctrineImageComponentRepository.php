@@ -23,6 +23,7 @@ class DoctrineImageComponentRepository implements ImageComponentRepository
         $adEntity = $this->findAdEntity($ad);
         $this->loadEntityFromImageComponent($imageComponent, $adEntity);
         $this->persistImageComponentEntity();
+        $this->updateComponentWithId($imageComponent);
     }
 
     private function loadEntityFromImageComponent(ImageComponent $imageComponent, $adEntity): void
@@ -47,5 +48,10 @@ class DoctrineImageComponentRepository implements ImageComponentRepository
     private function findAdEntity(Ad $ad)
     {
         return $this->entityManager->find(\App\Entity\Ad::class, $ad->getId());
+    }
+
+    private function updateComponentWithId(ImageComponent $imageComponent): void
+    {
+        $imageComponent->setId($this->imageComponentEntity->getId());
     }
 }

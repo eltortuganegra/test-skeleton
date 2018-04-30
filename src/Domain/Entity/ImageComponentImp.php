@@ -50,6 +50,7 @@ class ImageComponentImp extends ComponentImp implements ImageComponent
     public function serialize(): string
     {
         $data = [
+            'id' => $this->id,
             'name' => $this->name,
             'position' => $this->position,
             'width' => $this->width,

@@ -82,4 +82,22 @@ class AdImp implements Ad
     {
         return $this->amountComponents;
     }
+
+    public function serialize(): string
+    {
+        $data = [
+            'id' => $this->id,
+            'name' => $this->name,
+            'status' => $this->status,
+            'components' => []
+        ];
+        if ($this->amountComponents > 0) {
+            foreach ($this->components as $component)
+            {
+                $data['components'][] = $component->serialize();
+            }
+        }
+
+        return serialize($data);
+    }
 }

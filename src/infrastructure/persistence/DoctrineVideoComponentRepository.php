@@ -4,7 +4,6 @@ namespace App\infrastructure\persistence;
 
 
 use App\Domain\Entity\Ad;
-use App\Domain\Entity\ImageComponent;
 use App\Domain\Entity\VideoComponent;
 use Doctrine\ORM\EntityManager;
 
@@ -24,6 +23,7 @@ class DoctrineVideoComponentRepository implements VideoComponentRepository
         $adEntity = $this->findAdEntity($ad);
         $this->loadEntityFromImageComponent($videoComponent, $adEntity);
         $this->persistImageComponentEntity();
+        $this->updateComponentWithId($videoComponent);
     }
 
     private function loadEntityFromImageComponent(VideoComponent $videoComponent, $adEntity): void
@@ -48,5 +48,10 @@ class DoctrineVideoComponentRepository implements VideoComponentRepository
     private function findAdEntity(Ad $ad)
     {
         return $this->entityManager->find(\App\Entity\Ad::class, $ad->getId());
+    }
+
+    private function updateComponentWithId(VideoComponent $videoComponent): void
+    {
+        $videoComponent->setId($this->videoComponentEntity->getId());
     }
 }

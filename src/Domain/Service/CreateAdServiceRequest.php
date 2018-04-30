@@ -33,16 +33,21 @@ class CreateAdServiceRequest implements ServiceRequest
     private function createComponents(array $data)
     {
         foreach ($data['components'] as $componentData) {
-            if ($componentData['type'] == 'TextComponent') {
-                $component = TextComponentFactory::create($componentData);
-            } else if ($componentData['type'] == 'ImageComponent') {
-                $component = ImageComponentFactory::create($componentData);
-            } else if ($componentData['type'] == 'VideoComponent') {
-                $component = VideoComponentFactory::create($componentData);
-            }
-
-            $this->ad->addComponent($component);
+            $this->addComponentToAd($componentData);
         }
+    }
+
+    private function addComponentToAd($componentData): void
+    {
+        if ($componentData['type'] == 'TextComponent') {
+            $component = TextComponentFactory::create($componentData);
+        } else if ($componentData['type'] == 'ImageComponent') {
+            $component = ImageComponentFactory::create($componentData);
+        } else if ($componentData['type'] == 'VideoComponent') {
+            $component = VideoComponentFactory::create($componentData);
+        }
+
+        $this->ad->addComponent($component);
     }
 
     public function getAd()

@@ -50,6 +50,7 @@ class VideoComponentImp extends ComponentImp implements VideoComponent
     public function serialize(): string
     {
         $data = [
+            'id' => $this->id,
             'name' => $this->name,
             'position' => $this->position,
             'width' => $this->width,
