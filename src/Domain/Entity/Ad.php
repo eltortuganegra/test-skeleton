@@ -3,6 +3,8 @@
 namespace App\Domain\Entity;
 
 
+use App\Domain\ValueObject\AdStatus;
+
 interface Ad
 {
     public function setId(int $id);
@@ -10,6 +12,7 @@ interface Ad
     public function setName(string $name);
     public function getName(): string;
     public function isStatusPublished(): bool;
+    public function setStatus(AdStatus $adStatus);
     public function getStatus();
     public function publish();
     public function stop();

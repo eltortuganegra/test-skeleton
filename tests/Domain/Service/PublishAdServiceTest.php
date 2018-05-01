@@ -4,6 +4,7 @@ namespace App\Domain\Service;
 
 
 use App\Domain\Entity\AdFactory;
+use App\Domain\ValueObject\AdStatusFactory;
 use App\infrastructure\persistence\AdRepositoryFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -36,7 +37,7 @@ class PublishAdServiceTest extends KernelTestCase
         // Arrange
         $adData =[
             'name' => 'Publish ad service test -> Test Publish Ad',
-            'status' => 'publishing'
+            'status' => AdStatusFactory::createPublishing()
         ];
         $ad = AdFactory::create($adData);
         $this->adRepository->create($ad);
@@ -50,7 +51,7 @@ class PublishAdServiceTest extends KernelTestCase
         $status = $responseAd->getStatus();
 
         // Assert
-        $this->assertEquals('published', $status);
+        $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHED, $status->getValue());
     }
 
 }

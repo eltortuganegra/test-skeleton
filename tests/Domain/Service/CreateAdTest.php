@@ -4,6 +4,7 @@ namespace App\Domain\Service;
 
 use App\Domain\Entity\Ad;
 use App\Domain\Validator\AllComponentsMustBeValidException;
+use App\Domain\ValueObject\AdStatusFactory;
 use App\infrastructure\persistence\AdRepositoryFactory;
 use App\infrastructure\persistence\ImageComponentRepositoryFactory;
 use App\infrastructure\persistence\TextComponentRepositoryFactory;
@@ -41,7 +42,7 @@ class CreateAdTest extends KernelTestCase
         $createAdService = new CreateAdService($this->adRepository);
         $data = [
             'name' => 'Stark Industries Ad',
-            'status' => 'publishing'
+            'status' => AdStatusFactory::createPublishing(),
         ];
 
         $createAdServiceRequest = new CreateAdServiceRequest($data);
@@ -62,7 +63,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
-            'status' => 'publishing',
+            'status' => AdStatusFactory::createPublishing(),
             'components' => [
                 [
                     'type' => 'TextComponent',
@@ -100,7 +101,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
-            'status' => 'publishing',
+            'status' => AdStatusFactory::createPublishing(),
             'components' => [
                 [
                     'type' => 'TextComponent',
@@ -161,7 +162,7 @@ class CreateAdTest extends KernelTestCase
 
         $data = [
             'name' => 'Stark Industries Ad',
-            'status' => 'publishing',
+            'status' => AdStatusFactory::createPublishing(),
             'components' => [
                 [
                     'type' => 'ImageComponent',

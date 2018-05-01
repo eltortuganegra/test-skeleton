@@ -29,7 +29,7 @@ class DoctrineAdRepository implements AdRepository
     {
         $this->adEntity->setCreatedAt(new \DateTime());
         $this->adEntity->setName($ad->getName());
-        $this->adEntity->setStatus($ad->getStatus());
+        $this->adEntity->setStatus($ad->getStatus()->getValue());
     }
 
     private function persistAdEntity(): void

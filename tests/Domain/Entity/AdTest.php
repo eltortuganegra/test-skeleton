@@ -2,6 +2,7 @@
 
 namespace App\Domain\Entity;
 
+use App\Domain\ValueObject\AdStatusFactory;
 use PHPUnit\Framework\TestCase;
 
 class AdTest extends TestCase
@@ -15,7 +16,7 @@ class AdTest extends TestCase
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('publishing', $status);
+        $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHING, $status->getValue());
     }
 
     public function testPublishAnAdChangeItsStatusToPublished()
@@ -28,7 +29,7 @@ class AdTest extends TestCase
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('published', $status, 'Status is not published.');
+        $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHED, $status->getValue(), 'Status is not published.');
     }
 
     public function testStopAnAdChangeItsStatusToStopped()
@@ -41,7 +42,7 @@ class AdTest extends TestCase
         $status = $ad->getStatus();
 
         // Assert
-        $this->assertEquals('stopped', $status, 'Status is not stopped.');
+        $this->assertEquals(AdStatusFactory::AD_STATUS_STOPPED, $status->getValue(), 'Status is not stopped.');
     }
 
     public function testCreateAnAdAndAddATextComponent()
