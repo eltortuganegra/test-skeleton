@@ -30,4 +30,16 @@ class AdStatusTest extends \PHPUnit\Framework\TestCase
         // Assert
         $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHED, $value);
     }
+
+    public function testStoppedStatusMustHaveTheStoppedValue()
+    {
+        // Arrange
+        $stoppedStatus = AdStatusFactory::createStopped();
+
+        // Act
+        $value = $stoppedStatus->getValue();
+
+        // Assert
+        $this->assertEquals(AdStatusFactory::AD_STATUS_STOPPED, $value);
+    }
 }
