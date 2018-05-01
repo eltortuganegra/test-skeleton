@@ -18,4 +18,16 @@ class AdStatusTest extends \PHPUnit\Framework\TestCase
         // Assert
         $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHING, $value);
     }
+
+    public function testPublishedStatusMustHaveThePublishedValue()
+    {
+        // Arrange
+        $publishingStatus = AdStatusFactory::createPublished();
+
+        // Act
+        $value = $publishingStatus->getValue();
+
+        // Assert
+        $this->assertEquals(AdStatusFactory::AD_STATUS_PUBLISHED, $value);
+    }
 }
