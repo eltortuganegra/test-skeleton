@@ -162,7 +162,7 @@ php bin/console server:run
 
 # test-skeleton
 
-Este es el repositorio para la prueba técnica de SunMedia, puedes usar este skeleton o hacerlo tu mismo.
+Este es el repositorio para la prueba técnica, puedes usar este skeleton o hacerlo tu mismo.
 
 
 ## Docker (opcional)
