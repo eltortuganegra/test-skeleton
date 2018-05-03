@@ -9,6 +9,6 @@ class AdRepositoryFactory
 {
     static public function createDoctrine(EntityManager $entityManager): AdRepository
     {
-        return new DoctrineAdRepository($entityManager);
+        return new AdRepositoryDoctrine($entityManager);
     }
 }

@@ -7,7 +7,7 @@ use App\Domain\Entity\Ad;
 use App\Domain\Entity\AdFactory;
 use Doctrine\ORM\EntityManager;
 
-class DoctrineAdRepository implements AdRepository
+class AdRepositoryDoctrine implements AdRepository
 {
     private $entityManager;
     private $adEntity;
