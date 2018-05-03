@@ -6,6 +6,7 @@ namespace App\Controller;
 use App\Domain\Service\PublishAdService;
 use App\Domain\Service\PublishAdServiceRequest;
 use App\Domain\Service\ServiceResponse;
+use App\Domain\ValueObject\AdStatusFactory;
 use App\infrastructure\persistence\AdRepositoryFactory;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +26,7 @@ class PublishAdController extends Controller
         try {
             $serviceResponse = $this->executePublishAdService($resquest);
             $ad = $serviceResponse->getAd();
-            if ($ad->getStatus() == 'published') {
+            if ($ad->getStatus()->getValue() == AdStatusFactory::AD_STATUS_PUBLISHED) {
                 $output = json_encode([
                     'message' => 'ok'
                 ]);

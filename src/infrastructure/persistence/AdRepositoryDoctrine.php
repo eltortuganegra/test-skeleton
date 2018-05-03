@@ -5,6 +5,7 @@ namespace App\infrastructure\persistence;
 
 use App\Domain\Entity\Ad;
 use App\Domain\Entity\AdFactory;
+use App\Domain\ValueObject\AdStatusFactory;
 use Doctrine\ORM\EntityManager;
 
 class AdRepositoryDoctrine implements AdRepository
@@ -55,7 +56,7 @@ class AdRepositoryDoctrine implements AdRepository
         $data = [
             'id' => $entity->getId(),
             'name' => $entity->getName(),
-            'status' => $entity->getStatus(),
+            'status' => AdStatusFactory::create($entity->getStatus()),
         ];
         $ad = AdFactory::create($data);
 

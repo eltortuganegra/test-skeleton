@@ -23,18 +23,21 @@ class TextComponentImp extends ComponentImp implements TextComponent
         $this->text = $text;
     }
 
-    public function serialize(): string
+    public function toJson(): string
     {
-        $data = [
+        return json_encode($this->toArray());
+    }
+
+    public function toArray(): array
+    {
+        return [
             'id' => $this->id,
             'name' => $this->name,
-            'position' => $this->position,
+            'position' => $this->position->toArray(),
             'width' => $this->width,
             'height' => $this->height,
             'text' => $this->text,
         ];
-
-        return serialize($data);
     }
 
 }

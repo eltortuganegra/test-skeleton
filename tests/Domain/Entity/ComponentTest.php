@@ -2,18 +2,19 @@
 
 namespace App\Domain\Entity;
 
+use App\Domain\ValueObject\PositionFactory;
 use PHPUnit\Framework\TestCase;
 
 class ComponentTest extends TestCase
 {
-    public function testImageComponentMustCanBeSerialized()
+    public function testImageComponentMustCanBeSerializedToJson()
     {
         // Arrange
-        $serializedData = 'a:8:{s:2:"id";N;s:4:"name";s:8:"Super Ad";s:8:"position";s:8:"10,20,30";s:5:"width";i:50;s:6:"height";i:100;s:19:"linkToExternalImage";s:79:"http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg";s:6:"format";s:3:"png";s:4:"size";i:1000;}';
+        $dataInJson = '{"id":null,"name":"Super Ad","position":{"xCoordinate":1,"yCoordinate":2,"zCoordinate":4},"width":50,"height":100,"linkToExternalImage":"http:\/\/wanna-joke.com\/wp-content\/uploads\/2015\/11\/programmers-meme-no-errors.jpg","format":"png","size":1000}';
         $data = [
             'id' => 3,
             'name' => 'Super Ad',
-            'position' => '10,20,30',
+            'position' => PositionFactory::create(1, 2, 4),
             'width' => 50,
             'height' => 100,
             'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
@@ -23,20 +24,20 @@ class ComponentTest extends TestCase
         $imageComponent = ComponentFactory::createImageComponent($data);
 
         // Act
-        $result = $imageComponent->serialize();
+        $result = $imageComponent->toJson();
 
         // Assert
-        $this->assertEquals($serializedData, $result, 'Data must be serialized.');
+        $this->assertEquals($dataInJson, $result, 'Data must be serialized.');
     }
 
     public function testVideoComponentMustCanBeSerialized()
     {
         // Arrange
-        $serializedData = 'a:8:{s:2:"id";N;s:4:"name";s:8:"Super Ad";s:8:"position";s:8:"10,20,30";s:5:"width";i:50;s:6:"height";i:100;s:19:"linkToExternalImage";s:52:"http://dl3.webmfiles.org/big-buck-bunny_trailer.webm";s:6:"format";s:4:"webm";s:4:"size";i:1000;}';
+        $serializedData = '{"id":null,"name":"Super Ad","position":{"xCoordinate":1,"yCoordinate":2,"zCoordinate":4},"width":50,"height":100,"linkToExternalImage":"http:\/\/dl3.webmfiles.org\/big-buck-bunny_trailer.webm","format":"webm","size":1000}';
         $data = [
             'id' => 3,
             'name' => 'Super Ad',
-            'position' => '10,20,30',
+            'position' => PositionFactory::create(1, 2, 4),
             'width' => 50,
             'height' => 100,
             'linkToExternalImage' => 'http://dl3.webmfiles.org/big-buck-bunny_trailer.webm',
@@ -46,7 +47,7 @@ class ComponentTest extends TestCase
         $videoComponent = ComponentFactory::createVideoComponent($data);
 
         // Act
-        $result = $videoComponent->serialize();
+        $result = $videoComponent->toJson();
 
         // Assert
         $this->assertEquals($serializedData, $result, 'Data must be serialized.');
@@ -55,11 +56,11 @@ class ComponentTest extends TestCase
     public function testTextComponentMustCanBeSerialized()
     {
         // Arrange
-        $serializedData = 'a:6:{s:2:"id";N;s:4:"name";s:8:"Super Ad";s:8:"position";s:8:"10,20,30";s:5:"width";i:50;s:6:"height";i:100;s:4:"text";s:70:"Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.";}';
+        $serializedData = '{"id":null,"name":"Super Ad","position":{"xCoordinate":1,"yCoordinate":2,"zCoordinate":4},"width":50,"height":100,"text":"Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro."}';
         $data = [
             'id' => 3,
             'name' => 'Super Ad',
-            'position' => '10,20,30',
+            'position' => PositionFactory::create(1, 2, 4),
             'width' => 50,
             'height' => 100,
             'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -67,7 +68,7 @@ class ComponentTest extends TestCase
         $textComponent = ComponentFactory::createTextComponent($data);
 
         // Act
-        $result = $textComponent->serialize();
+        $result = $textComponent->toJson();
 
         // Assert
         $this->assertEquals($serializedData, $result, 'Data must be serialized.');

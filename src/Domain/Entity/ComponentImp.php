@@ -4,6 +4,7 @@ namespace App\Domain\Entity;
 
 
 use App\Domain\ValueObject\Position;
+use App\Domain\ValueObject\PositionFactory;
 
 abstract class ComponentImp implements Component
 {
@@ -16,7 +17,11 @@ abstract class ComponentImp implements Component
     public function __construct(array $data)
     {
         $this->name = $data['name'];
-        $this->position = $data['position'];
+        $this->position = PositionFactory::create(
+            $data['position']['x_coordinate'],
+            $data['position']['y_coordinate'],
+            $data['position']['z_coordinate']
+        );
         $this->width = $data['width'];
         $this->height = $data['height'];
     }

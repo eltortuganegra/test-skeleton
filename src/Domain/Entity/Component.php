@@ -17,7 +17,8 @@ interface Component
     public function getWidth(): int;
     public function setHeight(int $height);
     public function getHeight(): int;
-    public function serialize(): string;
+    public function toJson(): string;
+    public function toArray(): array;
 }
 
 

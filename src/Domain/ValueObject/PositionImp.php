@@ -30,4 +30,14 @@ class PositionImp implements Position
     {
         return $this->zCoordinate;
     }
+
+    public function toArray(): array
+    {
+        return [
+            'xCoordinate' => $this->xCoordinate,
+            'yCoordinate' => $this->yCoordinate,
+            'zCoordinate' => $this->zCoordinate,
+        ];
+
+    }
 }

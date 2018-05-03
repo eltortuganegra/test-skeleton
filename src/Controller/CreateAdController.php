@@ -65,7 +65,7 @@ class CreateAdController extends Controller
         $ad = $serviceResponse->getAd();
 
         $output = [
-            'ad' => $ad->serialize()
+            'ad' => $ad->toArray()
         ];
         $response = new Response(json_encode($output));
 
