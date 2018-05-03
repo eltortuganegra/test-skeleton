@@ -79,17 +79,17 @@ class TextComponent
         $this->ad = $ad;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -124,52 +124,52 @@ class TextComponent
         $this->position_z_coordinate = $position_z_coordinate;
     }
 
-    public function getWidth()
+    public function getWidth(): int
     {
         return $this->width;
     }
 
-    public function setWidth($width)
+    public function setWidth(int $width)
     {
         $this->width = $width;
     }
 
-    public function getHeight()
+    public function getHeight(): int
     {
         return $this->height;
     }
 
-    public function setHeight($height)
+    public function setHeight(int $height)
     {
         $this->height = $height;
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
 
-    public function setText($text)
+    public function setText(string $text)
     {
         $this->text = $text;
     }
 
-    public function getCreatedAt()
+    public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
 
-    public function getUpdateAt()
+    public function getUpdateAt(): \DateTime
     {
         return $this->updateAt;
     }
 
-    public function setUpdateAt($updateAt)
+    public function setUpdateAt(\DateTime $updateAt)
     {
         $this->updateAt = $updateAt;
     }

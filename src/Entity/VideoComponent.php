@@ -88,17 +88,17 @@ class VideoComponent
         $this->ad = $ad;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }
@@ -133,72 +133,72 @@ class VideoComponent
         $this->position_z_coordinate = $position_z_coordinate;
     }
 
-    public function getWidth()
+    public function getWidth(): int
     {
         return $this->width;
     }
 
-    public function setWidth($width)
+    public function setWidth(int $width)
     {
         $this->width = $width;
     }
 
-    public function getHeight()
+    public function getHeight():int
     {
         return $this->height;
     }
 
-    public function setHeight($height)
+    public function setHeight(int $height)
     {
         $this->height = $height;
     }
 
-    public function getLinkToExternalImage()
+    public function getLinkToExternalImage(): string
     {
         return $this->linkToExternalImage;
     }
 
-    public function setLinkToExternalImage($linkToExternalImage)
+    public function setLinkToExternalImage(string $linkToExternalImage)
     {
         $this->linkToExternalImage = $linkToExternalImage;
     }
 
-    public function getFormat()
+    public function getFormat():string
     {
         return $this->format;
     }
 
-    public function setFormat($format)
+    public function setFormat(string $format)
     {
         $this->format = $format;
     }
 
-    public function getSize()
+    public function getSize(): int
     {
         return $this->size;
     }
 
-    public function setSize($size)
+    public function setSize(int $size)
     {
         $this->size = $size;
     }
 
-    public function getCreatedAt()
+    public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
     }
 
-    public function getUpdateAt()
+    public function getUpdateAt(): \DateTime
     {
         return $this->updateAt;
     }
 
-    public function setUpdateAt($updateAt)
+    public function setUpdateAt($updateAt): \DateTime
     {
         $this->updateAt = $updateAt;
     }
