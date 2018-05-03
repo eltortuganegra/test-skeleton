@@ -7,7 +7,7 @@ use App\Domain\Entity\Ad;
 use App\Domain\Entity\TextComponent;
 use Doctrine\ORM\EntityManager;
 
-class DoctrineTextComponentRepository implements TextComponentRepository
+class TextComponentRepositoryDoctrine implements TextComponentRepository
 {
     private $entityManager;
     private $textComponentEntity;

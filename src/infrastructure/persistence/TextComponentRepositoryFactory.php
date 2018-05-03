@@ -9,6 +9,6 @@ class TextComponentRepositoryFactory
 {
     public function createDoctrine(EntityManager $entityManager): TextComponentRepository
     {
-        return new DoctrineTextComponentRepository($entityManager);
+        return new TextComponentRepositoryDoctrine($entityManager);
     }
 }
