@@ -17,7 +17,11 @@ class AdValidatorTest extends TestCase
         // Arrange
         $textData = [
             'name' => 'Zombie Ad',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 10,
+                "y_coordinate" => 20,
+                "z_coordinate" => 30,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -25,7 +29,11 @@ class AdValidatorTest extends TestCase
         $zombieTextComponent = ComponentFactory::createTextComponent($textData);
         $data = [
             'name' => 'Invalid data',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 10,
+                "y_coordinate" => 20,
+                "z_coordinate" => 30,
+            ],
             'width' => 50,
             'height' => 100,
             'linkToExternalImage' => '',

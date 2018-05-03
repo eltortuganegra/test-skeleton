@@ -50,7 +50,11 @@ class AdTest extends TestCase
         // Arrange
         $textData = [
             'name' => 'Super Ad',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 1,
+                "y_coordinate" => 2,
+                "z_coordinate" => 3,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -71,7 +75,11 @@ class AdTest extends TestCase
         // Arrange
         $textData = [
             'name' => 'Zombie Ad',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 1,
+                "y_coordinate" => 2,
+                "z_coordinate" => 3,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -79,7 +87,11 @@ class AdTest extends TestCase
         $zombieTextComponent = ComponentFactory::createTextComponent($textData);
         $textData = [
             'name' => 'Hodor',
-            'position' => '40,50,60',
+            'position' => [
+                "x_coordinate" => 1,
+                "y_coordinate" => 2,
+                "z_coordinate" => 3,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor hodor - hodor hodor hodor!',
@@ -104,7 +116,11 @@ class AdTest extends TestCase
         // Arrange
         $textData = [
             'name' => 'Zombie Ad',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 1,
+                "y_coordinate" => 2,
+                "z_coordinate" => 3,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -112,7 +128,11 @@ class AdTest extends TestCase
         $zombieTextComponent = ComponentFactory::createTextComponent($textData);
         $textData = [
             'name' => 'Hodor',
-            'position' => '40,50,60',
+            'position' => [
+                "x_coordinate" => 1,
+                "y_coordinate" => 2,
+                "z_coordinate" => 3,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor hodor - hodor hodor hodor!',

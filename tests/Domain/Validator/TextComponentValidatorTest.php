@@ -17,7 +17,11 @@ class TextComponentValidatorTest extends TestCase
         // Arrange
         $data = [
             'name' => 'Super Ad',
-            'position' => '10,20,30',
+            'position' => [
+                "x_coordinate" => 10,
+                "y_coordinate" => 20,
+                "z_coordinate" => 30,
+            ],
             'width' => 50,
             'height' => 100,
             'text' => 'This text has 141 characters. This text has 141 characters. This text has 141 characters. This text has 141 characters. This text has 141 cha'

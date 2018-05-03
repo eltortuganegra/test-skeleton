@@ -69,7 +69,11 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'TextComponent',
                     'name' => 'Stark Industries slogan',
-                    'position' => PositionFactory::create(1, 2,3),
+                    'position' => [
+                        "x_coordinate" => 10,
+                        "y_coordinate" => 20,
+                        "z_coordinate" => 30,
+                    ],
                     'width' => 100,
                     'height' => 300,
                     'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -107,7 +111,11 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'TextComponent',
                     'name' => 'Stark Industries slogan',
-                    'position' => PositionFactory::create(1, 2,3),
+                    'position' => [
+                        "x_coordinate" => 10,
+                        "y_coordinate" => 20,
+                        "z_coordinate" => 30,
+                    ],
                     'width' => 100,
                     'height' => 300,
                     'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -115,7 +123,11 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'ImageComponent',
                     'name' => 'Stark Industries image',
-                    'position' => PositionFactory::create(1, 2,3),
+                    'position' => [
+                        "x_coordinate" => 10,
+                        "y_coordinate" => 20,
+                        "z_coordinate" => 30,
+                    ],
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
@@ -125,7 +137,11 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'VideoComponent',
                     'name' => 'Stark Industries promo video',
-                    'position' => PositionFactory::create(1, 2,3),
+                    'position' => [
+                        "x_coordinate" => 10,
+                        "y_coordinate" => 20,
+                        "z_coordinate" => 30,
+                    ],
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
@@ -168,7 +184,11 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'ImageComponent',
                     'name' => 'Component no valid',
-                    'position' => PositionFactory::create(1, 2,3),
+                    'position' => [
+                        "x_coordinate" => 10,
+                        "y_coordinate" => 20,
+                        "z_coordinate" => 30,
+                    ],
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
