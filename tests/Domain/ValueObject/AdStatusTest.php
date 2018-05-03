@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Domain\ValueObjet;
+namespace App\Domain\ValueObject;
 
 use App\Domain\ValueObject\AdStatusFactory;
 
