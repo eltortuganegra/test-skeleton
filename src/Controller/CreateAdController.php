@@ -26,25 +26,20 @@ class CreateAdController extends Controller
         try {
             $response = $this->executeCreateAdService($resquest);
 
-            return $response;
         } catch(\Exception $exception) {
             $response = $this->getResponseForException($exception);
 
             return $response;
         }
+
+        return $response;
     }
 
     private function getCreateAdService(): CreateAdService
     {
-        $this->entityManager = $this->getDoctrine()->getManager();
-        $this->adRepository = AdRepositoryFactory::createDoctrine($this->entityManager);
-        $service = new CreateAdService($this->adRepository);
-        $textComponentRepository = TextComponentRepositoryFactory::createDoctrine($this->entityManager);
-        $service->setTextComponentRepository($textComponentRepository);
-        $imageComponentRepository = ImageComponentRepositoryFactory::createDoctrine($this->entityManager);
-        $service->setImageComponentRepository($imageComponentRepository);
-        $videoComponentRepository = VideoComponentRepositoryFactory::createDoctrine($this->entityManager);
-        $service->setVideoComponentRepository($videoComponentRepository);
+        $this->loadAdRepository();
+        $service = $this->createNewAdService();
+        $this->loadRepositoriestoTheService($service);
 
         return $service;
     }
@@ -62,12 +57,7 @@ class CreateAdController extends Controller
         $createAdService = $this->getCreateAdService();
         $createAdServiceRequest = $this->getCreateAdServiceRequest($resquest);
         $serviceResponse = $createAdService->execute($createAdServiceRequest);
-        $ad = $serviceResponse->getAd();
-
-        $output = [
-            'ad' => $ad->toArray()
-        ];
-        $response = new Response(json_encode($output));
+        $response = $this->getResponse($serviceResponse);
 
         return $response;
     }
@@ -80,6 +70,39 @@ class CreateAdController extends Controller
         $response = new Response(json_encode($output));
         $response->setStatusCode(400);
 
+        return $response;
+    }
+
+    private function loadAdRepository(): void
+    {
+        $this->entityManager = $this->getDoctrine()->getManager();
+        $this->adRepository = AdRepositoryFactory::createDoctrine($this->entityManager);
+    }
+
+    private function createNewAdService(): CreateAdService
+    {
+        $service = new CreateAdService($this->adRepository);
+        return $service;
+    }
+
+    private function loadRepositoriestoTheService($service): void
+    {
+        $textComponentRepository = TextComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $service->setTextComponentRepository($textComponentRepository);
+        $imageComponentRepository = ImageComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $service->setImageComponentRepository($imageComponentRepository);
+        $videoComponentRepository = VideoComponentRepositoryFactory::createDoctrine($this->entityManager);
+        $service->setVideoComponentRepository($videoComponentRepository);
+    }
+
+    private function getResponse($serviceResponse): Response
+    {
+        $ad = $serviceResponse->getAd();
+
+        $output = [
+            'ad' => $ad->toArray()
+        ];
+        $response = new Response(json_encode($output));
         return $response;
     }
 }
