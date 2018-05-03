@@ -82,6 +82,7 @@ class CreateAdController extends Controller
     private function createNewAdService(): CreateAdService
     {
         $service = new CreateAdService($this->adRepository);
+
         return $service;
     }
 
@@ -103,6 +104,7 @@ class CreateAdController extends Controller
             'ad' => $ad->toArray()
         ];
         $response = new Response(json_encode($output));
+
         return $response;
     }
 }
