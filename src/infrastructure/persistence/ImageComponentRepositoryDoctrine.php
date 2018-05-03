@@ -7,7 +7,7 @@ use App\Domain\Entity\Ad;
 use App\Domain\Entity\ImageComponent;
 use Doctrine\ORM\EntityManager;
 
-class DoctrineImageComponentRepository implements ImageComponentRepository
+class ImageComponentRepositoryDoctrine implements ImageComponentRepository
 {
     private $entityManager;
     private $imageComponentEntity;

@@ -9,6 +9,6 @@ class ImageComponentRepositoryFactory
 {
     public function createDoctrine(EntityManager $entityManager): ImageComponentRepository
     {
-        return new DoctrineImageComponentRepository($entityManager);
+        return new ImageComponentRepositoryDoctrine($entityManager);
     }
 }
