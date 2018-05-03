@@ -96,7 +96,11 @@ php bin/console server:run
 		{
 			"type": "TextComponent",
 			"name": "Super Ad",
-            "position": "10,20,30",
+            "position": {
+                "x_coordinate": 10,
+                "y_coordinate": 20,
+                "z_coordinate": 30                
+            },
             "width": 50,
             "height": 100,
             "text": "Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro."
@@ -114,7 +118,11 @@ php bin/console server:run
 		{
 			"type": "TextComponent",
 			"name": "Super Ad",
-            "position": "10,20,30",
+            "position": {
+                "x_coordinate": 10,
+                "y_coordinate": 20,
+                "z_coordinate": 30                
+            },
             "width": 50,
             "height": 100,
             "text": "Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro."
@@ -122,7 +130,11 @@ php bin/console server:run
 		{
 			"type": "ImageComponent",
 			"name": "Super Ad",
-            "position": "10,20,30",
+            "position": {
+                "x_coordinate": 10,
+                "y_coordinate": 20,
+                "z_coordinate": 30                
+            },
             "width": 50,
             "height": 100,
             "linkToExternalImage": "http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg",
@@ -132,7 +144,11 @@ php bin/console server:run
 		{
 			"type": "VideoComponent",
 			"name": "Super Ad",
-            "position": "10,20,30",
+            "position": {
+                "x_coordinate": 10,
+                "y_coordinate": 20,
+                "z_coordinate": 30                
+            },
             "width": 50,
             "height": 100,
             "linkToExternalImage": "http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg",
