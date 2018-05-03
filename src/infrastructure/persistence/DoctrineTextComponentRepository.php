@@ -31,7 +31,9 @@ class DoctrineTextComponentRepository implements TextComponentRepository
         $this->textComponentEntity->setAd($adEntity);
         $this->textComponentEntity->setCreatedAt(new \DateTime());
         $this->textComponentEntity->setName($textComponent->getName());
-        $this->textComponentEntity->setPosition($textComponent->getPosition());
+        $this->textComponentEntity->setPositionXCoordinate($textComponent->getPosition()->getXCoordinate());
+        $this->textComponentEntity->setPositionYCoordinate($textComponent->getPosition()->getYCoordinate());
+        $this->textComponentEntity->setPositionZCoordinate($textComponent->getPosition()->getZCoordinate());
         $this->textComponentEntity->setWidth($textComponent->getWidth());
         $this->textComponentEntity->setHeight($textComponent->getHeight());
         $this->textComponentEntity->setText($textComponent->getText());

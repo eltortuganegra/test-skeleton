@@ -31,7 +31,9 @@ class DoctrineVideoComponentRepository implements VideoComponentRepository
         $this->videoComponentEntity->setAd($adEntity);
         $this->videoComponentEntity->setCreatedAt(new \DateTime());
         $this->videoComponentEntity->setName($videoComponent->getName());
-        $this->videoComponentEntity->setPosition($videoComponent->getPosition());
+        $this->videoComponentEntity->setPositionXCoordinate($videoComponent->getPosition()->getXCoordinate());
+        $this->videoComponentEntity->setPositionYCoordinate($videoComponent->getPosition()->getYCoordinate());
+        $this->videoComponentEntity->setPositionZCoordinate($videoComponent->getPosition()->getZCoordinate());
         $this->videoComponentEntity->setWidth($videoComponent->getWidth());
         $this->videoComponentEntity->setHeight($videoComponent->getHeight());
         $this->videoComponentEntity->setLinkToExternalImage($videoComponent->getLinkToExternalImage());

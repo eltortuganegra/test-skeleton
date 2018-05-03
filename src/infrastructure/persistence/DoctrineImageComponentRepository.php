@@ -31,7 +31,9 @@ class DoctrineImageComponentRepository implements ImageComponentRepository
         $this->imageComponentEntity->setAd($adEntity);
         $this->imageComponentEntity->setCreatedAt(new \DateTime());
         $this->imageComponentEntity->setName($imageComponent->getName());
-        $this->imageComponentEntity->setPosition($imageComponent->getPosition());
+        $this->imageComponentEntity->setPositionXCoordinate($imageComponent->getPosition()->getXCoordinate());
+        $this->imageComponentEntity->setPositionYCoordinate($imageComponent->getPosition()->getYCoordinate());
+        $this->imageComponentEntity->setPositionZCoordinate($imageComponent->getPosition()->getZCoordinate());
         $this->imageComponentEntity->setWidth($imageComponent->getWidth());
         $this->imageComponentEntity->setHeight($imageComponent->getHeight());
         $this->imageComponentEntity->setLinkToExternalImage($imageComponent->getLinkToExternalImage());

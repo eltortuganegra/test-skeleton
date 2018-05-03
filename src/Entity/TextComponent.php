@@ -39,9 +39,19 @@ class TextComponent
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $position;
+    private $position_x_coordinate;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position_y_coordinate;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position_z_coordinate;
 
     /**
      * @ORM\Column(type="integer")
@@ -84,14 +94,34 @@ class TextComponent
         $this->name = $name;
     }
 
-    public function getPosition()
+    public function getPositionXCoordinate(): int
     {
-        return $this->position;
+        return $this->position_x_coordinate;
     }
 
-    public function setPosition($position)
+    public function setPositionXCoordinate(int $position_x_coordinate)
     {
-        $this->position = $position;
+        $this->position_x_coordinate = $position_x_coordinate;
+    }
+
+    public function getPositionYCoordinate(): int
+    {
+        return $this->position_y_coordinate;
+    }
+
+    public function setPositionYCoordinate(int $position_y_coordinate)
+    {
+        $this->position_y_coordinate = $position_y_coordinate;
+    }
+
+    public function getPositionZCoordinate(): int
+    {
+        return $this->position_z_coordinate;
+    }
+
+    public function setPositionZCoordinate(int $position_z_coordinate)
+    {
+        $this->position_z_coordinate = $position_z_coordinate;
     }
 
     public function getWidth()

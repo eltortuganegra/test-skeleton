@@ -5,6 +5,7 @@ namespace App\Domain\Service;
 use App\Domain\Entity\Ad;
 use App\Domain\Validator\AllComponentsMustBeValidException;
 use App\Domain\ValueObject\AdStatusFactory;
+use App\Domain\ValueObject\PositionFactory;
 use App\infrastructure\persistence\AdRepositoryFactory;
 use App\infrastructure\persistence\ImageComponentRepositoryFactory;
 use App\infrastructure\persistence\TextComponentRepositoryFactory;
@@ -68,7 +69,7 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'TextComponent',
                     'name' => 'Stark Industries slogan',
-                    'position' => '1,2,3',
+                    'position' => PositionFactory::create(1, 2,3),
                     'width' => 100,
                     'height' => 300,
                     'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -106,7 +107,7 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'TextComponent',
                     'name' => 'Stark Industries slogan',
-                    'position' => '1,2,3',
+                    'position' => PositionFactory::create(1, 2,3),
                     'width' => 100,
                     'height' => 300,
                     'text' => 'Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro.',
@@ -114,7 +115,7 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'ImageComponent',
                     'name' => 'Stark Industries image',
-                    'position' => '1,2,3',
+                    'position' => PositionFactory::create(1, 2,3),
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
@@ -124,7 +125,7 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'VideoComponent',
                     'name' => 'Stark Industries promo video',
-                    'position' => '1,2,3',
+                    'position' => PositionFactory::create(1, 2,3),
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',
@@ -167,7 +168,7 @@ class CreateAdTest extends KernelTestCase
                 [
                     'type' => 'ImageComponent',
                     'name' => 'Component no valid',
-                    'position' => '1,2,3',
+                    'position' => PositionFactory::create(1, 2,3),
                     'width' => 100,
                     'height' => 300,
                     'linkToExternalImage' => 'http://wanna-joke.com/wp-content/uploads/2015/11/programmers-meme-no-errors.jpg',

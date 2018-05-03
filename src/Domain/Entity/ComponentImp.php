@@ -3,6 +3,8 @@
 namespace App\Domain\Entity;
 
 
+use App\Domain\ValueObject\Position;
+
 abstract class ComponentImp implements Component
 {
     protected $id;
@@ -39,12 +41,12 @@ abstract class ComponentImp implements Component
         return $this->name;
     }
 
-    public function setPosition(string $position)
+    public function setPosition(Position $position)
     {
         $this->position = $position;
     }
 
-    public function getPosition(): string
+    public function getPosition(): Position
     {
         return $this->position;
     }
